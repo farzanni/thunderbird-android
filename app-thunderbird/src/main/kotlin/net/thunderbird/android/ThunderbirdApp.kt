@@ -2,6 +2,7 @@ package net.thunderbird.android
 
 import app.k9mail.feature.telemetry.api.TelemetryManager
 import com.fsck.k9.K9
+import com.google.android.material.color.DynamicColors
 import net.thunderbird.app.common.BaseApplication
 import org.koin.android.ext.android.inject
 import org.koin.core.module.Module
@@ -14,6 +15,7 @@ class ThunderbirdApp : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
 
+        DynamicColors.applyToActivitiesIfAvailable(this)
         initializeTelemetry()
     }
 

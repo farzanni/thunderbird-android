@@ -11,11 +11,17 @@ import androidx.compose.runtime.ReadOnlyComposable
 fun BoltTheme(
     themeConfig: ThemeConfig,
     darkTheme: Boolean = isSystemInDarkTheme(),
+    useDynamicColors: Boolean = false,
     content: @Composable () -> Unit,
 ) {
-    val themeColorScheme = selectThemeColorScheme(
+    val defaultColorScheme = selectThemeColorScheme(
         themeConfig = themeConfig,
         darkTheme = darkTheme,
+    )
+    val themeColorScheme = platformColorScheme(
+        defaultColorScheme = defaultColorScheme,
+        darkTheme = darkTheme,
+        useDynamicColors = useDynamicColors,
     )
     val themeImages = selectThemeImages(
         themeConfig = themeConfig,
